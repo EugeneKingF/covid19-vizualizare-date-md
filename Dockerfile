@@ -47,6 +47,6 @@ EXPOSE 6006
 
 
 RUN pip install flask-login uwsgi
-
+RUN pip install gspread oauth2client
 WORKDIR "/app"
 CMD ["/bin/bash"]
