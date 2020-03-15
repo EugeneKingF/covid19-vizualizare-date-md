@@ -89,4 +89,4 @@ if __name__ == '__main__':
     if pars['live']:
         app.run(host='0.0.0.0', port=80, debug =True)
     else:
-        app.run(host='localhost', port=6001, debug =True)
+        app.run(host='0.0.0.0', port=6001, debug =True)
