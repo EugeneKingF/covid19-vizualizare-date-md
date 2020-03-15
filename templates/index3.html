@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Coronavirus COVID-19 in Moldova">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="Coronavirus COVID-19 Moldova">
+
+    <!-- Title Page-->
+    <title>{% block title %}MD COVID-19 Coronavirus{% endblock %}</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="static/CoolAdmin/css/font-face.css" rel="stylesheet" media="all">
+    <link href="static/CoolAdmin/vendor/font-awesome-4.7/static/CoolAdmin/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="static/CoolAdmin/vendor/font-awesome-5/static/CoolAdmin/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="static/CoolAdmin/vendor/mdi-font/static/CoolAdmin/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="static/CoolAdmin/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="static/CoolAdmin/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="static/CoolAdmin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="static/CoolAdmin/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="static/CoolAdmin/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="static/CoolAdmin/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="static/CoolAdmin/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="static/CoolAdmin/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="static/CoolAdmin/css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- END HEADER MOBILE -->
+
+        {% block content %}
+        <script>
+        
+            var data = {{data | tojson}};
+        
+         </script>
+
+        <!-- PAGE CONTENT-->
+        <div class="page-content--bgf7">
+            <!-- BREADCRUMB-->
+            <section class="au-breadcrumb2">
+                <div class="container">
+                    
+                </div>
+            </section>
+            <!-- END BREADCRUMB-->
+
+            <!-- WELCOME-->
+            {% block welcome %}
+            <section class="welcome p-t-10">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                            <h1 class="title-4">Coronavirus COVID-19
+                                <span>Moldova</span>
+                            </h1>
+                            <hr class="line-seprate">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END WELCOME-->
+            {% endblock %}
+            {% block timeline_table %}
+
+            <!-- STATISTIC-->
+            <section class="statistic statistic2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="statistic__item statistic__item--red">
+                                <h2 class="number">{{data.infectate}}</h2>
+                                <span class="desc">Total cazuri confirmate</span>
+                                <div class="icon">
+                                    <i class="zmdi zmdi-account-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="statistic__item statistic__item--orange">
+                                <h2 class="number">{{data.suspecte}}</h2>
+                                <span class="desc">Total persoane suspecte</span>
+                                <div class="icon">
+                                    <i class="zmdi zmdi-shopping-cart"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="statistic__item statistic__item--blue">
+                                <h2 class="number">{{data.monitorzare}}</h2>
+                                <span class="desc">Total persoane monitorizate</span>
+                                <div class="icon">
+                                    <i class="zmdi zmdi-calendar-note"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="statistic__item statistic__item--red">
+                                <h2 class="number">{{data.zile}}</h2>
+                                <span class="desc">Zile de la primul caz</span>
+                                <div class="icon">
+                                    <i class="zmdi zmdi-money"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END STATISTIC-->
+
+            <!-- STATISTIC CHART-->
+            <section class="statistic-chart">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-5 m-b-35">Statistici</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <!-- CHART-->
+                            <div class="statistic-chart-1">
+                                <h3 class="title-3 m-b-30">Infectati</h3>
+                                <div class="chart-wrap">
+                                    <canvas id="chart1"></canvas>
+                                </div>
+                                
+                            </div>
+                            <!-- END CHART-->
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <!-- TOP CAMPAIGN-->
+                            <div class="au-card m-b-30">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2 m-b-40">Suspecti/Linia verde</h3>
+                                        <canvas id="barChart1"></canvas>
+                                    </div>
+                                </div>
+                            <!-- END TOP CAMPAIGN-->
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <!-- CHART PERCENT-->
+                            <div class="au-card m-b-30">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2 m-b-40">Intrati in tara/Monitorizare</h3>
+                                        <canvas id="sales-chart1"></canvas>
+                                    </div>
+                                </div>
+                            <!-- END CHART PERCENT-->
+                        </div>
+                    </div>
+                    <p>Sursa datelor <a href='https://www.facebook.com/protectiesocialamoldova/'>Ministerul Sănătății</a></p>
+                </div>
+            </section>
+            <!-- END STATISTIC CHART-->
+            {% endblock %}
+
+            <!-- COPYRIGHT-->
+            <section class="p-t-60 p-b-20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright">
+                                <p>Creat de <a href="https://www.facebook.com/codeformoldova/">Code 4 Moldova</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END COPYRIGHT-->
+        </div>
+
+        {% endblock %}
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="static/CoolAdmin/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="static/CoolAdmin/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="static/CoolAdmin/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="static/CoolAdmin/vendor/slick/slick.min.js">
+    </script>
+    <script src="static/CoolAdmin/vendor/wow/wow.min.js"></script>
+    <script src="static/CoolAdmin/vendor/animsition/animsition.min.js"></script>
+    <script src="static/CoolAdmin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="static/CoolAdmin/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="static/CoolAdmin/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="static/CoolAdmin/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="static/CoolAdmin/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="static/CoolAdmin/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="static/CoolAdmin/vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="static/CoolAdmin/js/main.js"></script>
+    <script src="static/script.js"></script>
+
+</body>
+
+</html>
+<!-- end document-->
